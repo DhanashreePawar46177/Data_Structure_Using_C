@@ -95,7 +95,7 @@ void  Delete_First(struct  Node **First)
 
         *First = Temp -> Next;
 
-        printf("\n\n Deleted First Element in LL is = %d.", Temp->Data);
+        printf("\n\n Deleted First Element in LL is = %d.",Temp -> Data);
 
         free(Temp);
     }
@@ -119,15 +119,19 @@ void  Delete_Last(struct Node  **First)
                         {
                                     Temp = Temp -> Next;
                         }
+                        printf("\n\n Deleted Last Element in LL is = %d.",Temp -> Next -> Data);
+                        free(Temp -> Next);
+
+                        Temp -> Next = NULL;
         }
+        else
+        {
+            printf("\n\n Deleted Last Element in LL is = %d.",Temp -> Next -> Data);
 
-        printf("\n\n Deleted Last Element in LL is = %d.", Temp->Next->Data);
-
-        free(Temp->Next);
-
-        Temp->Next = NULL;
+            free(Temp);
+            *First = NULL;
+        }
     }
-
     return;
 }
 
